@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FL248 English for Tourism course orientation - Can Tho University" />
+  <meta name="theme-color" content="#1f5ca9" />
+  <title>FL248 | English for Tourism - Orientation</title>
+  <style>
+    :root{
+      --ctu-blue:#1f5ca9;
+      --ctu-sky:#00afef;
+      --ink:#153047;
+      --muted:#607286;
+      --paper:#ffffff;
+      --wash:#f4f8fc;
+      --line:#dce7f2;
+      --good:#18864b;
+      --warn:#b26b00;
+      --shadow:0 14px 40px rgba(23, 64, 108, .12);
+      --radius:22px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% -10%, rgba(0,175,239,.13), transparent 34%),
+        linear-gradient(180deg,#fff 0,#f8fbfe 32%,#f4f8fc 100%);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    button,input{font:inherit}
+    .skip-link{position:absolute;left:-9999px;top:auto}
+    .skip-link:focus{left:1rem;top:1rem;z-index:1000;background:#fff;padding:.7rem 1rem;border-radius:10px;box-shadow:var(--shadow)}
+
+    .topbar{
+      position:sticky;top:0;z-index:100;
+      backdrop-filter:saturate(140%) blur(14px);
+      background:rgba(255,255,255,.9);
+      border-bottom:1px solid rgba(31,92,169,.1);
+    }
+    .nav{max-width:var(--max);margin:auto;padding:.75rem 1.1rem;display:flex;align-items:center;gap:1rem}
+    .brand-mini{display:flex;align-items:center;gap:.7rem;text-decoration:none;min-width:max-content}
+    .brand-mini-mark{width:35px;height:35px;border-radius:9px;background:linear-gradient(135deg,var(--ctu-blue),var(--ctu-sky));transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 6px 18px rgba(31,92,169,.2)}
+    .brand-mini-mark span{color:white;font-size:.7rem;font-weight:900;transform:rotate(-45deg)}
+    .brand-mini strong{font-size:.94rem;letter-spacing:.02em}
+    .navlinks{margin-left:auto;display:flex;gap:.2rem;overflow:auto;scrollbar-width:none}
+    .navlinks::-webkit-scrollbar{display:none}
+    .navlinks a{padding:.55rem .75rem;text-decoration:none;border-radius:10px;color:#466178;font-size:.88rem;white-space:nowrap}
+    .navlinks a:hover,.navlinks a.active{background:#edf5fc;color:var(--ctu-blue)}
+    .print-btn{border:1px solid var(--line);background:#fff;color:var(--ctu-blue);padding:.55rem .8rem;border-radius:10px;cursor:pointer;font-weight:700;white-space:nowrap}
+    .print-btn:hover{border-color:#b9d1e8;background:#f8fbff}
+
+    .hero{max-width:var(--max);margin:0 auto;padding:3.3rem 1.1rem 2rem}
+    .hero-card{position:relative;overflow:hidden;background:linear-gradient(135deg,#0f4e95 0%,#1f5ca9 60%,#048dc7 100%);color:#fff;border-radius:30px;padding:2.7rem;box-shadow:0 22px 60px rgba(31,92,169,.25)}
+    .hero-card:before,.hero-card:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08)}
+    .hero-card:before{width:330px;height:330px;right:-120px;top:-130px}
+    .hero-card:after{width:220px;height:220px;right:100px;bottom:-150px}
+    .identity{position:relative;z-index:2;display:flex;align-items:center;gap:1.35rem;margin-bottom:2rem}
+    .logo-shell{position:relative;width:132px;height:132px;background:#fff;border-radius:24px;display:grid;place-items:center;padding:12px;box-shadow:0 14px 32px rgba(0,0,0,.18);flex:0 0 auto}
+    .logo-shell img{position:absolute;inset:12px;max-width:calc(100% - 24px);max-height:calc(100% - 24px);object-fit:contain;display:block;opacity:0;transition:opacity .2s ease}
+    .logo-fallback{display:block;text-align:center;color:var(--ctu-blue);font-weight:900;line-height:1.05;font-size:1rem}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);padding:.35rem .7rem;border-radius:999px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    h1{font-size:clamp(2rem,5vw,4.15rem);line-height:1.04;margin:.65rem 0 .6rem;letter-spacing:-.045em}
+    .hero-sub{font-size:clamp(1rem,2vw,1.35rem);opacity:.9;margin:0;max-width:720px}
+    .hero-meta{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:2rem}
+    .meta-card{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.17);border-radius:16px;padding:1rem}
+    .meta-label{font-size:.77rem;text-transform:uppercase;letter-spacing:.08em;opacity:.72;font-weight:800}
+    .meta-value{font-size:1.02rem;font-weight:850;margin-top:.12rem}
+
+    main{max-width:var(--max);margin:0 auto;padding:0 1.1rem 4rem}
+    section{margin-top:1.4rem}
+    .section-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;box-shadow:0 8px 30px rgba(36,81,126,.055)}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+    .kicker{color:var(--ctu-sky);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin:0 0 .2rem}
+    h2{font-size:clamp(1.55rem,3vw,2.3rem);line-height:1.15;margin:0;letter-spacing:-.03em}
+    h3{margin:.2rem 0 .5rem;font-size:1.08rem}
+    .muted{color:var(--muted)}
+    .lead{font-size:1.03rem;color:#486177;max-width:950px}
+
+    .quick-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:1.1rem}
+    .teacher-card,.classes-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.55rem;box-shadow:0 8px 26px rgba(36,81,126,.05)}
+    .person{display:flex;gap:1rem;align-items:center;margin-top:1rem}
+    .avatar{width:62px;height:62px;border-radius:20px;background:linear-gradient(135deg,#dbeeff,#e8fbff);display:grid;place-items:center;font-weight:900;color:var(--ctu-blue);font-size:1.05rem;border:1px solid #d5e9fa}
+    .contact-list{display:grid;gap:.55rem;margin-top:1rem}
+    .contact-chip{display:flex;align-items:center;gap:.65rem;padding:.7rem .8rem;border:1px solid var(--line);border-radius:13px;text-decoration:none;background:#fbfdff}
+    .contact-chip:hover{border-color:#bfd8ed;background:#f4faff}
+
+    .btn-row{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;text-decoration:none;border-radius:13px;padding:.78rem 1rem;font-weight:800;border:1px solid transparent;transition:.18s ease;cursor:pointer}
+    .btn.primary{background:var(--ctu-blue);color:#fff}
+    .btn.primary:hover{transform:translateY(-1px);background:#184e91;box-shadow:0 8px 20px rgba(31,92,169,.18)}
+    .btn.secondary{background:#eef7fd;color:var(--ctu-blue);border-color:#d5e8f8}
+    .btn.secondary:hover{background:#e3f2fc}
+    .btn.ghost{background:#fff;color:var(--ctu-blue);border-color:var(--line)}
+    .btn.ghost:hover{border-color:#bcd5ea;background:#f8fbff}
+    .date-pill{display:inline-flex;align-items:center;gap:.45rem;padding:.43rem .7rem;border-radius:999px;background:#eef8f0;color:var(--good);font-size:.84rem;font-weight:800}
+
+    .unit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin-top:1.1rem}
+    .unit{position:relative;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fafdff);border-radius:17px;padding:1rem 1rem 1rem 3.55rem;min-height:86px}
+    .unit-num{position:absolute;left:.85rem;top:.9rem;width:36px;height:36px;border-radius:11px;background:#eaf5fc;color:var(--ctu-blue);display:grid;place-items:center;font-weight:900}
+    .unit.review{background:linear-gradient(135deg,#f2fbff,#edf4ff)}
+    .unit.review .unit-num{background:var(--ctu-blue);color:#fff}
+    .unit small{display:block;color:var(--muted);font-size:.78rem;margin-bottom:.15rem}
+
+    .assessment-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.1rem}
+    .assessment-list{display:grid;gap:.75rem}
+    .assessment-item{border:1px solid var(--line);border-radius:16px;padding:1rem}
+    .assessment-top{display:grid;grid-template-columns:auto 1fr auto;gap:.75rem;align-items:center}
+    .badge-num{width:31px;height:31px;border-radius:9px;background:#edf5fc;color:var(--ctu-blue);display:grid;place-items:center;font-weight:900}
+    .weight{font-size:1.08rem;font-weight:900;color:var(--ctu-blue)}
+    .bar{height:8px;background:#edf2f7;border-radius:999px;overflow:hidden;margin-top:.75rem}
+    .bar > span{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--ctu-sky),var(--ctu-blue));border-radius:inherit}
+    .rules{margin:.65rem 0 0;color:#526a7e;font-size:.93rem}
+    .grading-box{background:linear-gradient(180deg,#f8fbff,#f1f8fd);border:1px solid #d8e8f6;border-radius:18px;padding:1.2rem;height:max-content}
+    .grading-box ul{padding-left:1.2rem;margin:.6rem 0 0}
+    .grading-box li+li{margin-top:.55rem}
+
+    .materials{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .material{border:1px solid var(--line);border-radius:17px;padding:1.05rem;background:#fff}
+    .material.core{border-left:5px solid var(--ctu-blue)}
+    .book{padding:.85rem 0;border-top:1px dashed #dbe6ef}
+    .book:first-of-type{border-top:0;padding-top:.3rem}
+    .barcode{display:inline-flex;margin-top:.45rem;background:#f2f6f9;border:1px solid #e1e8ee;border-radius:9px;padding:.2rem .5rem;font-size:.78rem;font-weight:800;color:#607286}
+
+    .study-tools{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+    .search-wrap{flex:1;min-width:230px;position:relative}
+    .search-wrap input{width:100%;border:1px solid var(--line);border-radius:13px;padding:.78rem .9rem .78rem 2.55rem;outline:none;background:#fbfdff;color:var(--ink)}
+    .search-wrap input:focus{border-color:#9bc8ea;box-shadow:0 0 0 4px rgba(0,175,239,.09)}
+    .search-icon{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);opacity:.55}
+    .study-list{display:grid;gap:.65rem}
+    details.week{border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden}
+    details.week[open]{border-color:#bdd8ec;box-shadow:0 6px 18px rgba(31,92,169,.06)}
+    details.week summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:64px 1fr auto;gap:.8rem;align-items:center;padding:.95rem 1rem;font-weight:800}
+    details.week summary::-webkit-details-marker{display:none}
+    .week-no{display:inline-flex;align-items:center;justify-content:center;background:#edf6fc;color:var(--ctu-blue);border-radius:10px;padding:.34rem .55rem;font-size:.83rem}
+    .chev{transition:.2s transform;color:var(--ctu-blue);font-weight:900}
+    details[open] .chev{transform:rotate(90deg)}
+    .task{padding:0 1rem 1rem 5.75rem;color:#536b80;white-space:pre-line}
+    .no-results{display:none;padding:1rem;text-align:center;border:1px dashed #cfdde9;border-radius:14px;color:var(--muted)}
+
+    .footer{background:#0f3157;color:#d9e8f5;margin-top:3rem}
+    .footer-inner{max-width:var(--max);margin:auto;padding:2rem 1.1rem;display:flex;justify-content:space-between;gap:1.5rem;align-items:center}
+    .footer small{opacity:.8}
+    .source-note{font-size:.78rem;color:#6f8395;margin-top:.9rem}
+
+    .back-top{position:fixed;right:1rem;bottom:1rem;width:44px;height:44px;border:0;border-radius:14px;background:var(--ctu-blue);color:#fff;box-shadow:0 10px 24px rgba(31,92,169,.22);cursor:pointer;opacity:0;pointer-events:none;transform:translateY(8px);transition:.2s ease}
+    .back-top.show{opacity:1;pointer-events:auto;transform:none}
+
+    @media (max-width:900px){
+      .hero-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .quick-grid,.assessment-grid,.materials{grid-template-columns:1fr}
+      .unit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .navlinks{display:none}
+      .print-btn{margin-left:auto}
+    }
+    @media (max-width:620px){
+      .hero{padding-top:1.3rem}
+      .hero-card{padding:1.5rem;border-radius:23px}
+      .identity{align-items:flex-start;flex-direction:column}
+      .logo-shell{width:108px;height:108px;border-radius:20px}
+      .hero-meta,.unit-grid{grid-template-columns:1fr}
+      .section-card,.teacher-card,.classes-card{padding:1.1rem;border-radius:18px}
+      details.week summary{grid-template-columns:58px 1fr auto;padding:.85rem}
+      .task{padding:.1rem .85rem .95rem .85rem}
+      .footer-inner{align-items:flex-start;flex-direction:column}
+      .brand-mini strong{font-size:.82rem}
+    }
+    @media print{
+      body{background:#fff;font-size:11pt}
+      .topbar,.back-top,.study-tools,.btn-row{display:none!important}
+      .hero{padding-top:0}
+      .hero-card{box-shadow:none;background:#fff!important;color:#000;border:1px solid #ccc}
+      .hero-card:before,.hero-card:after{display:none}
+      .hero-eyebrow{color:#000;border-color:#ccc;background:#fff}
+      .meta-card{color:#000;border-color:#ddd;background:#fff}
+      .section-card,.teacher-card,.classes-card{box-shadow:none;break-inside:avoid}
+      details.week{break-inside:avoid}
+      details.week:not([open]) .task{display:block!important}
+      a{text-decoration:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="topbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand-mini" href="#top" aria-label="FL248 home">
+        <span class="brand-mini-mark" aria-hidden="true"><span>FL248</span></span>
+        <strong>English for Tourism</strong>
+      </a>
+      <div class="navlinks" id="navLinks">
+        <a href="#overview">Overview</a>
+        <a href="#classes">Classes</a>
+        <a href="#structure">Structure</a>
+        <a href="#assessment">Assessment</a>
+        <a href="#materials">Materials</a>
+        <a href="#self-study">Self-study</a>
+      </div>
+      <button class="print-btn" type="button" onclick="window.print()">Print</button>
+    </nav>
+  </header>
+
+  <div id="top" class="hero">
+    <div class="hero-card">
+      <div class="identity">
+        <div class="logo-shell" aria-label="Can Tho University logo">
+          <img id="ctuLogo" data-src="https://ai.ctu.edu.vn/logo/full_color_1simple1.png" alt="Can Tho University logo" referrerpolicy="no-referrer" decoding="async" />
+          <div class="logo-fallback" id="logoFallback">CAN THO<br>UNIVERSITY</div>
+        </div>
+        <div>
+          <span class="hero-eyebrow">Course Orientation</span>
+          <h1>English for Tourism</h1>
+          <p class="hero-sub">Tiếng Anh Du lịch · FL248 · Can Tho University</p>
+        </div>
+      </div>
+      <div class="hero-meta" aria-label="Course facts">
+        <div class="meta-card"><div class="meta-label">Course code</div><div class="meta-value">FL248</div></div>
+        <div class="meta-card"><div class="meta-label">Credits</div><div class="meta-value">3 credits</div></div>
+        <div class="meta-card"><div class="meta-label">Theory</div><div class="meta-value">45 hours</div></div>
+        <div class="meta-card"><div class="meta-label">Self-study</div><div class="meta-value">90 hours</div></div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section id="overview" class="section-card">
+      <div class="section-head">
+        <div><p class="kicker">Course overview</p><h2>Welcome to FL248</h2></div>
+      </div>
+      <p class="lead">English for Tourism provides learners with specialized English vocabulary about tourism, focusing on topics such as knowledge about types of resorts, tourism activities, tourism management activities. tourism, travel activities, practical language to guide visitors, means of transportation, local and international special holidays and festivals. Students can learn about technical terms related to the above topics; From there, students can apply the knowledge they have learned in basic communication situations. The program also gives children the opportunity to experience real-life communication with foreigners and carry out small projects to create community service products.</p>
+    </section>
+
+    <section id="classes" class="quick-grid">
+      <article class="teacher-card">
+        <p class="kicker">Teacher info</p>
+        <h2>Your instructor</h2>
+        <div class="person">
+          <div class="avatar" aria-hidden="true">VT</div>
+          <div><h3>Vo Pham Trinh Thu</h3><div class="muted">FL248 · English for Tourism</div></div>
+        </div>
+        <div class="contact-list">
+          <a class="contact-chip" href="tel:0918241888"><span aria-hidden="true">☎</span><span>0918241888</span></a>
+          <a class="contact-chip" href="mailto:vptthu@ctu.edu.vn"><span aria-hidden="true">✉</span><span>vptthu@ctu.edu.vn</span></a>
+        </div>
+      </article>
+
+      <article class="classes-card">
+        <p class="kicker">Current classes</p>
+        <div class="section-head" style="margin-bottom:.4rem">
+          <h2>Class folders</h2>
+          <span class="date-pill">● September 7, 2026</span>
+        </div>
+        <p class="muted">Use the links below to open the Google Drive folders supplied for the current classes and theory materials.</p>
+        <div class="btn-row">
+          <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/u/1/folders/13od5Cr9QvuTEr1s2_wO2WsEUml3qGoEg">Class 1 ↗</a>
+          <a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/u/1/folders/1Gp-EJRqgGwtQ6-0aaHX7V5irWtPFZEM3">Class 2 ↗</a>
+          <a class="btn ghost" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/u/1/folders/1IarmPypevY16343-DUNOWfaWA1SMwYG6">Theory materials ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="structure" class="section-card">
+      <div class="section-head">
+        <div><p class="kicker">Course structure</p><h2>What you will study</h2></div>
+        <a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/u/1/folders/1IarmPypevY16343-DUNOWfaWA1SMwYG6">Open Theory folder ↗</a>
+      </div>
+      <div class="unit-grid">
+        <div class="unit"><span class="unit-num">1</span><small>Unit 1</small><strong>Selling dreams</strong></div>
+        <div class="unit"><span class="unit-num">2</span><small>Unit 2</small><strong>Getting there</strong></div>
+        <div class="unit"><span class="unit-num">3</span><small>Unit 3</small><strong>Accommodation</strong></div>
+        <div class="unit"><span class="unit-num">4</span><small>Unit 4</small><strong>Destinations</strong></div>
+        <div class="unit"><span class="unit-num">5</span><small>Unit 5</small><strong>Things to do</strong></div>
+        <div class="unit review"><span class="unit-num">R1</span><small>Review</small><strong>Review &amp; Consolidation 1</strong></div>
+        <div class="unit"><span class="unit-num">6</span><small>Unit 6</small><strong>Niche tourism</strong></div>
+        <div class="unit"><span class="unit-num">7</span><small>Unit 7</small><strong>Cultural tourism</strong></div>
+        <div class="unit"><span class="unit-num">8</span><small>Unit 8</small><strong>Running a hotel</strong></div>
+        <div class="unit"><span class="unit-num">9</span><small>Unit 9</small><strong>Customer service</strong></div>
+        <div class="unit"><span class="unit-num">10</span><small>Unit 10</small><strong>Bus travel</strong></div>
+        <div class="unit review"><span class="unit-num">R2</span><small>Review</small><strong>Review &amp; Consolidation 2</strong></div>
+      </div>
+    </section>
+
+    <section id="assessment" class="section-card">
+      <div class="section-head"><div><p class="kicker">Assessment</p><h2>How your learning is assessed</h2></div></div>
+      <div class="assessment-grid">
+        <div class="assessment-list">
+          <article class="assessment-item">
+            <div class="assessment-top"><span class="badge-num">1</span><strong>Attendance</strong><span class="weight">10%</span></div>
+            <div class="bar"><span style="--w:10%"></span></div>
+            <p class="rules">Have 80% of the whole attendance</p>
+          </article>
+          <article class="assessment-item">
+            <div class="assessment-top"><span class="badge-num">2</span><strong>Group assignments</strong><span class="weight">20%</span></div>
+            <div class="bar"><span style="--w:20%"></span></div>
+            <p class="rules">- Report and presentation<br>- Get participation confirmation from the group members</p>
+          </article>
+          <article class="assessment-item">
+            <div class="assessment-top"><span class="badge-num">3</span><strong>Mid-term test</strong><span class="weight">20%</span></div>
+            <div class="bar"><span style="--w:20%"></span></div>
+            <p class="rules">A written or speaking test (45 minutes or 15 minutes for each pair)</p>
+          </article>
+          <article class="assessment-item">
+            <div class="assessment-top"><span class="badge-num">4</span><strong>Final –term test</strong><span class="weight">50%</span></div>
+            <div class="bar"><span style="--w:50%"></span></div>
+            <p class="rules">A written or speaking test (60 minutes or 15 minutes for each pair)<br>Must have 80% of the whole class attendance<br>Obligatory to take the test</p>
+          </article>
+        </div>
+        <aside class="grading-box">
+          <p class="kicker">Grading</p>
+          <h3>Score calculation</h3>
+          <ul>
+            <li>Grading components and final test scores will be marked on a scale of 10 (0 to 10), rounded to one decimal place.</li>
+            <li>Course score is the sum of all the components of the evaluation multiplied by the corresponding weight. The course score is marked on a scale of 10 and rounded to one decimal place, then it is converted to A-B-C-D score and score on a scale of 4 under the academic regulations of the University.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="materials" class="section-card">
+      <div class="section-head"><div><p class="kicker">Teaching materials</p><h2>Books and references</h2></div></div>
+      <div class="materials">
+        <article class="material core">
+          <p class="kicker">Core textbook</p>
+          <h3>English for international tourism: Intermediate Students' book New edition</h3>
+          <p class="muted">Peter Strutt. Harlow, England: Pearson Education Limited, 2013</p>
+        </article>
+        <article class="material">
+          <p class="kicker">Self study</p>
+          <div class="book">
+            <strong>4. English for international tourism: Intermediate Students' book</strong>
+            <div class="muted">Peter Strutt. Harlow, England: Pearson Education Limited, 2003, 9780582479838.- 428.24/ S927is</div>
+            <span class="barcode">MOL.066008 · MON.027748 · MON.051205 · SP.011545</span>
+          </div>
+          <div class="book">
+            <strong>5. English for tourism and restaurants — Book 1</strong>
+            <div class="muted">Frank Levin, Peg Tinsley; Proofreader: Dennis Le Boeuf, Liming Jing - Thành phố Hồ Chí Minh: Tổng hợp, 2016.- 218 p.: ill.; 30 cm - Sách photo, 9786045846872.- 428.24/ L665/B.1</div>
+            <span class="barcode">MON.065619</span>
+          </div>
+          <div class="book">
+            <strong>6. English for tourism and restaurants — Book 2</strong>
+            <div class="muted">Frank Levin, Peg Tinsley; Proofreader: Judy Majewski - Thành phố Hồ Chí Minh: Tổng hợp, 2016.- 209 p.: ill.; 30 cm - Sách photo, 9786045846889.- 428.24/ L665/B.2</div>
+            <span class="barcode">MON.065620</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="self-study" class="section-card">
+      <div class="section-head"><div><p class="kicker">Self-study guide</p><h2>15-week learning plan</h2></div></div>
+      <div class="study-tools">
+        <label class="search-wrap">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="studySearch" type="search" placeholder="Search week, topic, or task..." aria-label="Search self-study guide" />
+        </label>
+        <button class="btn ghost" id="expandAll" type="button">Expand all</button>
+        <button class="btn ghost" id="collapseAll" type="button">Collapse all</button>
+      </div>
+      <div class="study-list" id="studyList">
+        <details class="week"><summary><span class="week-no">Week 1</span><span>Revision 1: Pronunciation &amp; Intonation</span><span class="chev">›</span></summary><div class="task">Pronouncing the guest’s names
+(English for Tourism and Restaurants Book 1, Page 12)</div></details>
+        <details class="week"><summary><span class="week-no">Week 2</span><span>Greetings and Self introduction</span><span class="chev">›</span></summary><div class="task">Greeting a tour group
+Introducing yourself to a guest
+Saying goodbye
+(English for Tourism and Restaurants Book 1, Page 16)</div></details>
+        <details class="week"><summary><span class="week-no">Week 3</span><span>Revising numbers</span><span class="chev">›</span></summary><div class="task">Cardinals and Ordinals
+(English for Tourism and Restaurants Book 1, Pages 20-26)</div></details>
+        <details class="week"><summary><span class="week-no">Week 4</span><span>Offering an apology</span><span class="chev">›</span></summary><div class="task">Offering apologies for booking mistakes
+Dealing with complaints
+(English for Tourism and Restaurants Book 1, Page 30)</div></details>
+        <details class="week"><summary><span class="week-no">Week 5</span><span>Refusals and Thanks</span><span class="chev">›</span></summary><div class="task">Refusing an reservation
+Saying thank-you
+(English for Tourism and Restaurants Book 1, Page 34)</div></details>
+        <details class="week"><summary><span class="week-no">Week 6</span><span>Expressing time and dates</span><span class="chev">›</span></summary><div class="task">Talking about schedules
+(English for Tourism and Restaurants Book 1, Pages 38-42)</div></details>
+        <details class="week"><summary><span class="week-no">Week 7</span><span>Giving indoor and ourdoor directions</span><span class="chev">›</span></summary><div class="task">Giving directions inside a hotel and within a city
+(English for Tourism and Restaurants Book 1, Pages 50-54)</div></details>
+        <details class="week"><summary><span class="week-no">Week 8</span><span>Giving information about weather conditions</span><span class="chev">›</span></summary><div class="task">Describing local weather conditions and dressing suggestions
+(English for Tourism and Restaurants Book 1, Pages 58-64)</div></details>
+        <details class="week"><summary><span class="week-no">Week 9</span><span>Transports and transport services</span><span class="chev">›</span></summary><div class="task">Arranging transports for guests
+(English for Tourism and Restaurants Book 1, Page 98)</div></details>
+        <details class="week"><summary><span class="week-no">Week 10</span><span>Messages and phone calls</span><span class="chev">›</span></summary><div class="task">Taking messages
+Making in-country and international calls
+(English for Tourism and Restaurants Book 1, Pages 124-128)</div></details>
+        <details class="week"><summary><span class="week-no">Week 11</span><span>Making travel arrangements</span><span class="chev">›</span></summary><div class="task">Talking to a travel agency
+Arranging travel spots
+(English for Tourism and Restaurants Book 2, Page 72)</div></details>
+        <details class="week"><summary><span class="week-no">Week 12</span><span>Arranging local tours</span><span class="chev">›</span></summary><div class="task">Arranging local tours or optional tours
+(English for Tourism and Restaurants Book 2, Page 78)</div></details>
+        <details class="week"><summary><span class="week-no">Week 13</span><span>Aviation</span><span class="chev">›</span></summary><div class="task">Booking flights, pre-, during- and post-flying procedures
+(English for Tourism and Restaurants Book 2, Pages 116-140)</div></details>
+        <details class="week"><summary><span class="week-no">Week 14</span><span>Making an emergency annoucement</span><span class="chev">›</span></summary><div class="task">Making announcements of fire, earthquake or power outrage
+(English for Tourism and Restaurants Book 2, Page 150)</div></details>
+        <details class="week"><summary><span class="week-no">Week 15</span><span>Writing a semi-formal letter</span><span class="chev">›</span></summary><div class="task">Writing an application letter
+Writng an apology letter
+(English for Tourism and Restaurants Book 2, Page 164)</div></details>
+      </div>
+      <div class="no-results" id="noResults">No matching weeks found.</div>
+      <p class="source-note">Course wording and information are reproduced from the supplied FL248 Orientation document.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>FL248 · English for Tourism</strong><br><small>Course Orientation · Can Tho University</small></div>
+      <small>Designed as a static GitHub Pages site.</small>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
+
+  <script>
+    const logo = document.getElementById('ctuLogo');
+    const fallback = document.getElementById('logoFallback');
+    logo.addEventListener('load', () => { logo.style.opacity = '1'; fallback.style.display = 'none'; });
+    logo.addEventListener('error', () => { logo.style.display = 'none'; fallback.style.display = 'block'; });
+    requestAnimationFrame(() => { logo.src = logo.dataset.src; });
+
+    const weeks = [...document.querySelectorAll('details.week')];
+    const search = document.getElementById('studySearch');
+    const noResults = document.getElementById('noResults');
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      let shown = 0;
+      weeks.forEach(w => {
+        const match = !q || w.textContent.toLowerCase().includes(q);
+        w.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      noResults.style.display = shown ? 'none' : 'block';
+    });
+    document.getElementById('expandAll').addEventListener('click', () => weeks.forEach(w => { if (w.style.display !== 'none') w.open = true; }));
+    document.getElementById('collapseAll').addEventListener('click', () => weeks.forEach(w => w.open = false));
+
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => backTop.classList.toggle('show', window.scrollY > 650), {passive:true});
+    backTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    const navLinks = [...document.querySelectorAll('.navlinks a')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, {rootMargin:'-25% 0px -65% 0px', threshold:0});
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
